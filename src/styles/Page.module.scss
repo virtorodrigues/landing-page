@@ -1,0 +1,7 @@
+.container {
+  background: rgba(0,0,0, 0.8) url("/images/background.jpg") center;
+  height: 100vh;
+  background-repeat: no-repeat, repeat;
+  background-attachment: scroll, fixed;
+  background-blend-mode: darken;
+}

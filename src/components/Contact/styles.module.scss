@@ -1,0 +1,51 @@
+.sectionContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: calc(100vh);
+
+  background: var(--black-500);
+
+  padding: 5rem 0;
+
+  > h1 {
+    margin-bottom: 10rem;
+    font-size: 4.5rem;
+    line-height: 4.5rem;
+    font-weight: 900;
+  }
+}
+
+.sectionContent {
+  max-width: 1120px;
+  width: 100%;
+  padding: 0 2rem;
+
+  display: grid;
+  gap: 2rem;
+
+  grid-template-columns: 200px 200px;
+  justify-content: center;
+
+  .socialContact {
+    display: flex;
+    align-items: center;
+  
+    a {
+      margin-left: 1rem;
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .sectionContainer {
+    > h1 {
+      margin-bottom: 4rem;
+    }
+  }
+
+  .sectionContent {
+    grid-template-columns: 200px;
+    padding: 0 1.5rem;
+  }
+}
