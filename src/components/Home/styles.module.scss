@@ -16,6 +16,10 @@
       animation: 3s arrowDown infinite ease;
       -webkit-animation: 2s arrowDown infinite ease;
       cursor: pointer;
+
+      @media (max-width: 820px) {
+        margin-bottom: 4rem;
+      }
     }
   }
 
