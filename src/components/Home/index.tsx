@@ -1,9 +1,12 @@
 import styles from './styles.module.scss';
+import { Link, animateScroll as scroll } from 'react-scroll';
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 export const Home = () => {
+
   return (
     <>
-      <section className={styles.sectionContainer}>
+      <section id='home' className={styles.sectionContainer}>
         <div className={styles.sectionContent}>
           <div className={styles.paragraph}>
             <span>Seja Bem-Vindo(a)</span>
@@ -11,11 +14,34 @@ export const Home = () => {
             <p>
               Quer saber mais sobre mim?
             </p>
-            <button>Saiba mais</button>
+            <button>
+              <Link
+                to='about'
+                smooth={true}
+                duration={500}
+              >
+                Saiba mais
+              </Link>
+            </button>
           </div>
-          <img src="/images/reactjs-icon-white.svg" alt="" />
+          <div className={styles.reactLogo}>
+            <Player
+              autoplay
+              loop={false}
+              keepLastFrame
+              //src="https://assets3.lottiefiles.com/packages/lf20_UJNc2t.json"
+              src='./lotties/react-logo.json'
+            />
+          </div>
         </div>
-        <img src="/images/arrow-down.svg" alt="" />
+        <Link
+          activeClass="active"
+          to='about'
+          smooth={true}
+          duration={500}
+        >
+          <img src='/images/arrow-down.svg' alt='' />
+        </Link>
       </section>
     </>
   )

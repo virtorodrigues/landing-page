@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 
 export const About = () => {
   return (
-    <section className={styles.sectionContainer}>
+    <section id='about' className={styles.sectionContainer}>
       <h1>Sobre mim</h1>
       <div className={styles.sectionContent}>
         <div className={styles.paragraph}>

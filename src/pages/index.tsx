@@ -1,10 +1,11 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import { About } from '../components/About'
-import { Contact } from '../components/Contact'
-import { Header } from '../components/Header'
-import { Home } from '../components/Home'
-import styles from '../styles/Page.module.scss'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import { About } from '../components/About';
+import { Contact } from '../components/Contact';
+import { Header } from '../components/Header';
+import { Home } from '../components/Home';
+import styles from '../styles/Page.module.scss';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 const Page: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Page: NextPage = () => {
       </Head>
 
       <Header />
+      
 
       <main className={styles.main}>
         <Home />

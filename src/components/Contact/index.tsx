@@ -10,7 +10,7 @@ import {
 
 export const Contact = () => {
   return (
-    <section className={styles.sectionContainer}>
+    <section id='contact' className={styles.sectionContainer}>
       <h1>Contatos</h1>
       <div className={styles.sectionContent}>
         <SocialContact icon={FaFacebookSquare} desctiption="Vitor Rodrigues" url="https://www.facebook.com/santos.vitao" />
