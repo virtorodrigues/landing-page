@@ -1,14 +1,41 @@
 import styles from './styles.module.scss';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import ScrollReveal from 'scrollreveal';
+import { useEffect } from 'react';
+import { motion, Variants } from "framer-motion";
+
+const cardVariants: Variants = {
+  offscreen: {
+    opacity: 0,
+    x: -50,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0,
+      duration: 2
+    }
+  }
+};
 
 export const Home = () => {
 
   return (
     <>
       <section id='home' className={styles.sectionContainer}>
-        <div className={styles.sectionContent}>
-          <div className={styles.paragraph}>
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.5 }}
+          className={styles.sectionContent}
+        >
+          <motion.div
+            variants={cardVariants}
+            className={styles.paragraph}
+          >
             <span>Seja Bem-Vindo(a)</span>
             <h1>Meu nome é <span>Vitor</span>.</h1>
             <p>
@@ -23,8 +50,17 @@ export const Home = () => {
                 Saiba mais
               </Link>
             </button>
-          </div>
-          <div className={styles.reactLogo}>
+          </motion.div>
+          <motion.div
+            animate={{
+              scale: [1, 1.05, 1],
+            }}
+            transition={{
+              duration: 3,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+            className={styles.reactLogo}>
             <Player
               autoplay
               loop={false}
@@ -32,8 +68,8 @@ export const Home = () => {
               //src="https://assets3.lottiefiles.com/packages/lf20_UJNc2t.json"
               src='./lotties/react-logo.json'
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         <Link
           activeClass="active"
           to='about'
@@ -46,3 +82,17 @@ export const Home = () => {
     </>
   )
 }
+
+
+/*
+// index:        0      1      2     3      4     5
+const fruits = ['🥭', '🍋', '🍌', '🍎', '🍓', '🍉'];
+
+// slice(de, até); -> slice(0, 3) -> result: [0, 1, 2]
+const fruitsSliced = fruits.slice(6, 10);
+
+console.log(fruitsSliced);  // ['🥭', '🍋', '🍌']
+console.log(fruits); // ['🥭', '🍋', '🍌', '🍎', '🍓', '🍉']
+ 
+
+*/

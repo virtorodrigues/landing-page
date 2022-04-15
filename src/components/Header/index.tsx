@@ -1,16 +1,54 @@
 import styles from './styles.module.scss';
 import { Link, animateScroll as scroll } from 'react-scroll';
 
+import { motion, Variants } from "framer-motion";
+
+const cardVariants: Variants = {
+  offscreen: {
+    opacity: 0,
+    x: -50,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0,
+      duration: 2
+    }
+  }
+};
+const cardVariants1: Variants = {
+  offscreen: {
+    opacity: 0,
+    x: 50,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0,
+      duration: 2
+    }
+  }
+};
+
 export const Header = () => {
   return (
-    <header className={styles.headerContainer}>
+    <motion.header
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.5 }}
+      className={styles.headerContainer}
+    >
       <div className={styles.headerContent}>
-        <div className={styles.logo}>
+        <motion.div variants={cardVariants} className={styles.logo}>
           <img src='/images/reactjs-icon.svg' alt='Logo' />
           <h1>Lets coding...</h1>
-        </div>
+        </motion.div>
 
-        <nav className={styles.menu}>
+        <motion.nav variants={cardVariants1} className={styles.menu}>
           <Link
             activeClass="active"
             to='home'
@@ -47,8 +85,8 @@ export const Header = () => {
           >
             Contatos
           </Link>
-        </nav>
+        </motion.nav>
       </div>
-    </header>
+    </motion.header>
   )
 }
